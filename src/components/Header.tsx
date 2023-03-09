@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import MenuMobile from "./MenuMobile";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { Home, List, LogOut, PackagePlus } from "lucide-react";
+import { Home, LayoutList, LogOut, PackagePlus } from "lucide-react";
 
 const MediaQuery = dynamic(
   () => {
@@ -16,8 +16,9 @@ export default function Header() {
   return (
     <>
       <MediaQuery maxWidth={1024}>
-        <div className="h-14 bg-white pl-4 flex items-center shadow-sm shadow-purple-400  w-full">
+        <div className="h-14 bg-white pl-4 flex items-center gap-2 shadow-sm shadow-purple-400  w-full">
           <MenuMobile />
+          <h1 className="font-bold text-lg text-teal-500">Conta Tudo</h1>
         </div>
       </MediaQuery>
       <MediaQuery minWidth={1025}>
@@ -39,7 +40,7 @@ export default function Header() {
               </NavigationMenu.Item>
               <NavigationMenu.Item className="box-border flex justify-center items-center px-2 py-1 text-mauve11 transition-all rounded-lg hover:bg-teal-700 hover:text-white active:bg-teal-900">
                 <NavigationMenu.Trigger className="flex gap-2 items-center">
-                  <List size={16} />
+                  <LayoutList size={16} />
                   <span>Categorias</span>
                 </NavigationMenu.Trigger>
               </NavigationMenu.Item>

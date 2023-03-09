@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <div>{children}</div>
+        <div className="w-full lg:w-[1024px] lg:m-auto">{children}</div>
       </body>
     </html>
   );

@@ -2,12 +2,11 @@
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import {
-  CheckCheck,
   Home,
   LayoutList,
   LogOut,
   Menu,
-  PlusCircle,
+  PackagePlus,
 } from "lucide-react";
 
 export default function MenuMobile() {
@@ -15,7 +14,7 @@ export default function MenuMobile() {
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>
         <button className="outline-none" aria-label="Customise options">
-          <Menu className="text-teal-400 transition-colors active:text-teal-700" />
+          <Menu className="text-teal-500 transition-colors active:text-teal-700" />
         </button>
       </DropdownMenu.Trigger>
 
@@ -33,7 +32,7 @@ export default function MenuMobile() {
           <DropdownMenu.Item className="group text-[14px]  text-purple-700 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px]  outline-none   ">
             Novo Registro
             <div className="ml-auto pl-[20px] group-data-[highlighted]:text-white group-">
-              <PlusCircle className="text-purple-700" size={16} />
+              <PackagePlus className="text-purple-700" size={16} />
             </div>
           </DropdownMenu.Item>
           <DropdownMenu.Item className="group text-[14px]  text-purple-700 rounded-[3px] flex items-center h-[25px] px-[5px] relative pl-[25px]  outline-none   ">
