@@ -13,17 +13,22 @@ export default async function Home() {
   const startDate = DateTime.now().startOf("month").toISO();
   const endDate = DateTime.now().endOf("month").toISO();
 
-  const homeData: HomeTotalData = await fetch(
+  const responseData = await fetch(
     `${
       process.env.API_URL
     }/dashboard/getTotal?accountId=${process.env.ACCOUNT_ID}&startDate=${startDate}&endDate=${endDate}`
-  ).then((res) => res.json());
+  )
+  
+  const homeData: HomeTotalData = await responseData.json()
 
-  const comparisionData: ComparisionData[] = await fetch(
+  const responseComparision = await fetch(
     `${
       process.env.API_URL
     }/dashboard/getComparision?accountId=${process.env.ACCOUNT_ID}&startDate=${startDate}&endDate=${endDate}`
-  ).then((res) => res.json());
+  );
+
+  const comparisionData: ComparisionData[] = await responseComparision.json()
+
 
   const formatNumber = (value: number): string =>
     intl.formatNumber(value, {
@@ -74,7 +79,7 @@ export default async function Home() {
         className="mt-4 shadow-purple-400"
         colorClass="bg-teal-500 text-white"
       >
-        {comparisionData && comparisionData?.map((register) => (
+        {comparisionData && comparisionData.map((register) => (
           <ItemCompare
             key={register.categoryName}
             label={register.categoryName}
