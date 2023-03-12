@@ -10,21 +10,19 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default async function Home() {
   const intl = createIntl({ locale: "pt-br" });
-  const startDate = DateTime.now().startOf("month").toISO();
-  const endDate = DateTime.now().endOf("month").toISO();
 
   const responseData = await fetch(
     `${
       process.env.API_URL
-    }/dashboard/getTotal?accountId=${process.env.ACCOUNT_ID}&startDate=${startDate}&endDate=${endDate}`
+    }/dashboard/getTotal?accountId=${process.env.ACCOUNT_ID}`
   )
-  
+
   const homeData: HomeTotalData = await responseData.json()
 
   const responseComparision = await fetch(
     `${
       process.env.API_URL
-    }/dashboard/getComparision?accountId=${process.env.ACCOUNT_ID}&startDate=${startDate}&endDate=${endDate}`
+    }/dashboard/getComparision?accountId=${process.env.ACCOUNT_ID}`
   );
 
   const comparisionData: ComparisionData[] = await responseComparision.json()
