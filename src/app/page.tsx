@@ -16,13 +16,13 @@ export default async function Home() {
   const homeData: HomeTotalData = await fetch(
     `${
       process.env.API_URL
-    }/dashboard/getTotal?accountId=${"64039deb847ed61aa13aa3f7"}&startDate=${startDate}&endDate=${endDate}`
+    }/dashboard/getTotal?accountId=${process.env.ACCOUNT_ID}&startDate=${startDate}&endDate=${endDate}`
   ).then((res) => res.json());
 
   const comparisionData: ComparisionData[] = await fetch(
     `${
       process.env.API_URL
-    }/dashboard/getComparision?accountId=${"64039deb847ed61aa13aa3f7"}&startDate=${startDate}&endDate=${endDate}`
+    }/dashboard/getComparision?accountId=${process.env.ACCOUNT_ID}&startDate=${startDate}&endDate=${endDate}`
   ).then((res) => res.json());
 
   const formatNumber = (value: number): string =>
