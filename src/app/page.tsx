@@ -12,21 +12,22 @@ export default async function Home() {
   const intl = createIntl({ locale: "pt-br" });
 
   const responseData = await fetch(
-    `${
-      process.env.API_URL
-    }/dashboard/getTotal?accountId=${process.env.ACCOUNT_ID}`
-  )
-
-  const homeData: HomeTotalData = await responseData.json()
-
-  const responseComparision = await fetch(
-    `${
-      process.env.API_URL
-    }/dashboard/getComparision?accountId=${process.env.ACCOUNT_ID}`
+    `${process.env.API_URL}/dashboard/getTotal?accountId=${process.env.ACCOUNT_ID}`,
+    {
+      cache: "no-cache",
+    }
   );
 
-  const comparisionData: ComparisionData[] = await responseComparision.json()
+  const homeData: HomeTotalData = await responseData.json();
 
+  const responseComparision = await fetch(
+    `${process.env.API_URL}/dashboard/getComparision?accountId=${process.env.ACCOUNT_ID}`,
+    {
+      cache: "no-cache",
+    }
+  );
+
+  const comparisionData: ComparisionData[] = await responseComparision.json();
 
   const formatNumber = (value: number): string =>
     intl.formatNumber(value, {
@@ -77,16 +78,17 @@ export default async function Home() {
         className="mt-4 shadow-purple-400"
         colorClass="bg-teal-500 text-white"
       >
-        {comparisionData && comparisionData.map((register) => (
-          <ItemCompare
-            key={register.categoryName}
-            label={register.categoryName}
-            className="flex items-center justify-between"
-            isPositive={register.isBetterThanLastMonth}
-            value={formatNumber(register.value)}
-            percentValue={formatPercent(register.percentage / 100)}
-          />
-        ))}
+        {comparisionData &&
+          comparisionData.map((register) => (
+            <ItemCompare
+              key={register.categoryName}
+              label={register.categoryName}
+              className="flex items-center justify-between"
+              isPositive={register.isBetterThanLastMonth}
+              value={formatNumber(register.value)}
+              percentValue={formatPercent(register.percentage / 100)}
+            />
+          ))}
       </Card>
 
       {/* @ts-expect-error Async Server Component */}
