@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import * as Tabs from "@radix-ui/react-tabs";
 import { useEffect, useState } from "react";

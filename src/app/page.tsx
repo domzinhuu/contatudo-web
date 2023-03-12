@@ -58,7 +58,7 @@ export default async function Home() {
         colorClass="bg-teal-500 text-white"
       >
         <ul>
-          {homeData.totalByCategories.map((item) => (
+          {homeData.totalByCategories?.map((item) => (
             <ItemLabel
               key={item.name}
               className="flex items-center justify-between"
@@ -74,7 +74,7 @@ export default async function Home() {
         className="mt-4 shadow-purple-400"
         colorClass="bg-teal-500 text-white"
       >
-        {comparisionData.map((register) => (
+        {comparisionData?.map((register) => (
           <ItemCompare
             key={register.categoryName}
             label={register.categoryName}
