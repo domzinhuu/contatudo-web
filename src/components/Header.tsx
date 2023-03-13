@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <>
       <MediaQuery maxWidth={1024}>
-        <div className="h-14 bg-white pl-4 flex items-center gap-2 shadow-sm shadow-purple-400  w-full">
+        <div className="fixed z-10 h-14 bg-white pl-4 flex items-center gap-2 shadow-sm shadow-purple-400  w-full">
           <MenuMobile />
           <h1 className="font-bold text-lg text-teal-500">Conta Tudo</h1>
         </div>

@@ -1,10 +1,4 @@
-import Header from "@/components/Header";
 import "./globals.css";
-
-export const metadata = {
-  title: "ContaTudo Web",
-  description: "By Maique Rosa",
-};
 
 export default function RootLayout({
   children,
@@ -14,8 +8,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <div className="w-full lg:w-[1024px] lg:m-auto">{children}</div>
+        <div >
+          {children}
+        </div>
       </body>
     </html>
   );
